@@ -12,12 +12,12 @@ class Scip7 < Formula
   depends_on "ipopt"
   depends_on "pkg-config"
   depends_on "readline"
-  depends_on "tbb"
+  depends_on "tbb@2020"
   depends_on "zlib"
 
   def install
     mkdir "build" do
-      system "/usr/local/bin/cmake", "..", "-DCMAKE_INSTALL_PREFIX=#{prefix}", "-DIPOPT=on", "-DIPOPT_DIR=/usr/local/opt/ipopt"
+      system "/usr/local/bin/cmake", "..", "-DCMAKE_INSTALL_PREFIX=#{prefix}", "-DIPOPT=on", "-DIPOPT_DIR=/usr/local/opt/ipopt", "-DTBB_DIR=/usr/local/opt/tbb@2020"
       system "make"
       system "make", "install"
 
